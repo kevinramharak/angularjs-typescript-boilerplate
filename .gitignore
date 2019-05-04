@@ -1,0 +1,7 @@
+# generated files
+node_modules/
+build/*
+dist/*
+
+# do not ignore .gitkeep for folder structure
+!.gitkeep

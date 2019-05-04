@@ -1,0 +1,44 @@
+{
+  "name": "living-styleguide",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "gulp",
+    "build:lib": "gulp lib",
+    "build:prod": "set NODE_ENV=production&& gulp lib browserify",
+    "watch": "gulp watch",
+    "serve": "python -m http.server --bind localhost"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.22",
+    "angular": "^1.7.7",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.54",
+    "@types/browserify": "^12.0.36",
+    "@types/exorcist": "^0.4.5",
+    "@types/gulp": "^4.0.6",
+    "@types/gulp-rename": "^0.0.33",
+    "@types/gulp-uglify": "^3.0.6",
+    "@types/jquery": "^3.3.29",
+    "@types/vinyl-source-stream": "^0.0.30",
+    "browserify": "^16.2.3",
+    "browserify-shim": "^3.8.14",
+    "exorcist": "^1.0.1",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-streamify": "^1.0.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-typescript": "^5.0.0",
+    "gulp-uglify": "^3.0.2",
+    "ts-node": "^8.0.3",
+    "tsify": "^4.0.1",
+    "typescript": "^3.3.3333",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
