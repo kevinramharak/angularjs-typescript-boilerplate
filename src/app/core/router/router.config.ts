@@ -1,4 +1,4 @@
-import { StateProvider, UrlRouterProvider } from '@uirouter/angularjs';
+import { StateProvider, UrlRouterProvider, TargetState, StateService, $InjectorLike, LocationServices, UIInjector } from '@uirouter/angularjs';
 
 function config($stateProvider: StateProvider, $urlRouterProvider: UrlRouterProvider) {
     $stateProvider.state('404', {
@@ -6,9 +6,27 @@ function config($stateProvider: StateProvider, $urlRouterProvider: UrlRouterProv
         template: '404 - Page Not Found'
     });
 
-    $urlRouterProvider.otherwise('/404');
+    $stateProvider.onInvalid(onInvalidCallback);
+
+    // this will redirect to the home state on load and else redirect to the 404 state
+    $urlRouterProvider.otherwise(function ($injector: $InjectorLike, $location: LocationServices) {
+        if ($location.path() === '') {
+            return '/';
+        } else {
+            return '/404';
+        }
+    });
 }
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
+
+// this will catch invalid state's and redirect them to the 404 state
+function onInvalidCallback(to?: TargetState, from?: TargetState, $injector?: UIInjector) {
+    const $state: StateService = $injector!.get('$state');
+    return $state.target('404', {
+        to,
+        from
+    });
+}
 
 export default config;
