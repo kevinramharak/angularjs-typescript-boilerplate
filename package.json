@@ -15,7 +15,7 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.22",
     "angular": "^1.7.7",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "@types/angular": "^1.6.54",
